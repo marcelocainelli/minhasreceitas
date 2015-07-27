@@ -25,6 +25,8 @@ module Workspace
 
     config.assets.initialize_on_precompile = false
     
+    config.action_controller.assets_dir = "#{File.dirname(File.dirname(__FILE__))}/public"
+    
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
