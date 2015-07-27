@@ -1,6 +1,6 @@
 <ul class="nav nav-tabs">
     <li>
-        <%= link_to "Back to All Recipes", recipes_path %>
+        <%= link_to "Voltar para todas Receitas", recipes_path %>
     </li>
     
 </ul>
@@ -9,12 +9,12 @@
     <div class="col-md-3 img-space">
          <%= get_gravimage @chef, size:300  %><br/>
          <% if current_user == @chef %>
-            <center> <%= link_to "Update My Profile", edit_chef_path, class:"btn btn-warning btn-sm" %> </center>
+            <center> <%= link_to "Atualize meu Profile", edit_chef_path, class:"btn btn-warning btn-sm" %> </center>
         <% end %>
     </div>
     <div class="col-md-8 col-md-offset-1">
         <table width=100%><tr>
-        <td><h4>All recipes by <%= @chef.chefname %> </h4></td><td><%= will_paginate @recipes%> </td>
+        <td><h4>Todas as Receitas de <%= @chef.chefname %> </h4></td><td><%= will_paginate @recipes%> </td>
          </tr></table>
           <% @recipes.each do |r| %>
            <div class="row">
@@ -23,12 +23,12 @@
                      <p> <%= r.summary %></p>
                      <!-- Style and Ingredients -->
                     <% if r.styles.any? %>
-                        <p> Styles: <% r.styles.each do |style| %>
+                        <p> Estilo: <% r.styles.each do |style| %>
                             | <%= link_to style.name, style %>
                         <% end %>
                         </p>
                     <% else %>
-                        <p>Styles: | n/a</p>
+                        <p>Estilos: | n/a</p>
                     <% end %>
                     <% if r.ingredients.any? %>
                         <p> Ingredietns: <% r.ingredients.each do |ing| %>
@@ -36,30 +36,30 @@
                         <% end %>
                         </p>
                     <% else %>
-                        <p>Ingredients: | n/a</p>
+                        <p>Ingredientes: | n/a</p>
                     <% end %>
                      
-                    <small>Posted <%= time_ago_in_words(r.created_at) %> ago.</small><br>
-                         <div class="pull-right">
-                <% if logged_in? %>
-                    <% if r.chef_likes(current_user).size==1 %>
-                    <% cheflike = r.chef_likes(current_user).first %>
-                        <small>You have <b><%= (cheflike.like == true ? "liked" : "disliked") %></b> this recipe. 
-                        [<%= link_to changevote_recipe_path(r), method: :patch do %> Change your vote <% end %>]</small><br>
-                    <% else %>
-                        <small>You have not yet voted for this recipe</small><br>
-                    <% end %>
-                
-                <% end %>
-                <small><%= r.thumbs_up_total %></small>
-                <%= link_to like_recipe_path(r, like: true), method: :post do %>
-                    <span class="glyphicon glyphicon-thumbs-up"></span> <small>Like</small>
-                <% end %> | 
-                <small><%= r.thumbs_down_total %></small>
-                 <%= link_to like_recipe_path(r, like: false), method: :post do %>            
-                <span class="glyphicon glyphicon-thumbs-down"></span> <small>Dislike</small> 
-                <% end %>
-            </div>
+                    <small>Postado <%= time_ago_in_words(r.created_at) %> ago.</small><br>
+            
+                     <div class="pull-right">
+                        <% if logged_in? %>
+                            <% if r.chef_likes(current_user).size==1 %>
+                            <% cheflike = r.chef_likes(current_user).first %>
+                                <small>Você deu um <b><%= (cheflike.like == true ? "Xablau" : "DisXablau") %></b> para esta receita. 
+                                [<%= link_to changevote_recipe_path(r), method: :patch do %> Mude seu Voto <% end %>]</small><br>
+                            <% else %>
+                                <small>Voce ainda não votou nesta Receita !</small><br>
+                            <% end %>
+                        <% end %>
+                        <small><%= r.thumbs_up_total %></small>
+                        <%= link_to like_recipe_path(r, like: true), method: :post do %>
+                            <span class="glyphicon glyphicon-thumbs-up"></span> <small>Xablau</small>
+                        <% end %> | 
+                        <small><%= r.thumbs_down_total %></small>
+                         <%= link_to like_recipe_path(r, like: false), method: :post do %>            
+                        <span class="glyphicon glyphicon-thumbs-down"></span> <small>DisXablau</small> 
+                        <% end %>
+                    </div>
                 </div>
                     
                 <div class = "col-md-3">
@@ -68,7 +68,7 @@
             </div>
         <% end %>
         <% if @chef.recipes.count==0 %>
-            <p>There are no recipes posted yet for this chef</p>
+            <p>Ainda não tem receitas postadas por este chef</p>
         <% end %>
         </div>
 </div>

@@ -3,15 +3,15 @@
     <div class="container">
       
       <% if logged_in? %>
-        <%= link_to "myRecipes Home", recipes_path, class: "btn btn-lg btn-success", id: "logo" %>
+        <%= link_to "Larica's", recipes_path, class: "btn btn-lg btn-success", id: "logo" %>
       <% else %>
-         <%= link_to "myRecipes Home", root_path, class: "btn btn-lg btn-success", id: "logo" %>
+         <%= link_to "Larica's", root_path, class: "btn btn-lg btn-success", id: "logo" %>
       <% end %>
       
        <div class="topmen">
              <li class="dropdown">
               <%= link_to "#", class: "btn btn-warning btn-sm dropdown-toggle", "data-toggle" => "dropdown" do %>
-                Browse By Style <b class="caret"></b> 
+                Navegue por Estilo <b class="caret"></b> 
                 <% end %>
                 <ul class="dropdown-menu">
                     <% Style.all.each do |style| %>
@@ -20,7 +20,7 @@
                     
                     <% if logged_in? %>
                      <li class="divider"></li>
-                     <li> <%= link_to "Add a New Style", new_style_path %> </li>
+                     <li> <%= link_to "Add um Novo Estilo", new_style_path %> </li>
                     <% end %>
                 </ul>
             </li>
@@ -29,7 +29,7 @@
        <div class="topmen">
              <li class="dropdown">
               <%= link_to "#", class: "btn btn-warning btn-sm dropdown-toggle", "data-toggle" => "dropdown" do %>
-               Browse By Ingredient <b class="caret"></b> 
+               Navegue por Ingrediente <b class="caret"></b> 
                 <% end %>
                 <ul class="dropdown-menu">
                     <% Ingredient.all.each do |ing| %>
@@ -37,7 +37,7 @@
                     <% end %>
                      <% if logged_in? %>
                      <li class="divider"></li>
-                     <li> <%= link_to "Add a New Ingredient", new_ingredient_path %> </li>
+                     <li> <%= link_to "Add um Novo Ingrediente", new_ingredient_path %> </li>
                     <% end %>
                 </ul>
             </li>
@@ -47,7 +47,7 @@
       
       <% if logged_in? %>
           <div class="topmen" style="margin-left: 25px;">
-            <%= link_to "Add a New Recipe", new_recipe_path, class: "btn btn-warning btn-sm" %>
+            <%= link_to "Add uma Nova Receita", new_recipe_path, class: "btn btn-warning btn-sm" %>
           </div>
           
           <!--dropdown -->
@@ -55,11 +55,11 @@
           <ul class="topmen" style="margin-right:5px;border-left: 1px solid white">
             <li class="dropdown">
               <%= link_to "#", class: "btn btn-danger btn-sm dropdown-toggle", "data-toggle" => "dropdown" do %>
-                User Options <b class="caret"></b> 
+                Opções <b class="caret"></b> 
                 <% end %>
                 <ul class="dropdown-menu">
-                  <li><%= link_to "View Profile", chef_path(current_user) %></li>
-                  <li><%= link_to "Edit Profile", edit_chef_path(current_user) %></li>
+                  <li><%= link_to "Visualizar o Profile", chef_path(current_user) %></li>
+                  <li><%= link_to "Editar o Profile", edit_chef_path(current_user) %></li>
                   <li class="divider"></li>
                   <li> <%= link_to "Logout", logout_path %> </li>
                 </ul>
@@ -70,7 +70,7 @@
                 <%= get_gravimage(current_user, size:50) %>
             </div>
             <div style="width:150px;padding-top:10px;padding-left:10px;float:left;">
-                <small style="color:white;">Logged in as:<br/> <%= current_user.chefname %> </small>
+                <small style="color:white;">Logged in como:<br/> <%= current_user.chefname %> </small>
             </div>
           
          </div>

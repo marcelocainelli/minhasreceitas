@@ -1,6 +1,6 @@
 <ul class="nav nav-tabs">
     <li class="active">
-        <%= link_to "Recipes", recipes_path %>
+        <%= link_to "Receitas", recipes_path %>
     </li>
     <li>
         <%= link_to "Chefs", chefs_path %>
@@ -10,7 +10,7 @@
 <table width=100%>
     <tr>
         <td width=60%>
-             <h1 style="text-align: right;">View All Recipes</h1>
+             <h1 style="text-align: right;">Visualize todas as Receitas</h1>
         </td>
         <td> <span class="pull-right"><%= will_paginate %></span> </td>
     </tr>
@@ -22,7 +22,7 @@
     <div class = "col-md-2 imgspace">
         <%= get_gravimage r.chef, size:100  %>
         <br/>
-       <small> Posted by:
+       <small> Postado por:
         <%= link_to r.chef.chefname, r.chef %> </small>
     </div>
         <div class = "col-md-6 well">
@@ -43,29 +43,29 @@
                 <% end %>
                 </p>
             <% else %>
-                <p>Ingredients: | n/a</p>
+                <p>Ingredientes: | n/a</p>
             <% end %>
         
             
-            <small>Posted <%= time_ago_in_words(r.created_at) %> ago.</small>
+            <small>Postado <%= time_ago_in_words(r.created_at) %> atras.</small>
             
               <div class="pull-right">
                 <% if logged_in? %>
                     <% if r.chef_likes(current_user).size==1 %>
                     <% cheflike = r.chef_likes(current_user).first %>
-                        <small>You have <b><%= (cheflike.like == true ? "liked" : "disliked") %></b> this recipe. 
-                        [<%= link_to changevote_recipe_path(r), method: :patch do %> Change your vote <% end %>]</small><br>
+                        <small>Você deu um <b><%= (cheflike.like == true ? "Xablau" : "DisXablau") %></b> para esta receita. 
+                        [<%= link_to changevote_recipe_path(r), method: :patch do %> Mude seu Voto <% end %>]</small><br>
                     <% else %>
-                        <small>You have not yet voted for this recipe</small><br>
+                        <small>Voce ainda não votou nesta Receita !</small><br>
                     <% end %>
                 <% end %>
                 <small><%= r.thumbs_up_total %></small>
                 <%= link_to like_recipe_path(r, like: true), method: :post do %>
-                    <span class="glyphicon glyphicon-thumbs-up"></span> <small>Like</small>
+                    <span class="glyphicon glyphicon-thumbs-up"></span> <small>Xablau</small>
                 <% end %> | 
                 <small><%= r.thumbs_down_total %></small>
                  <%= link_to like_recipe_path(r, like: false), method: :post do %>            
-                <span class="glyphicon glyphicon-thumbs-down"></span> <small>Dislike</small> 
+                <span class="glyphicon glyphicon-thumbs-down"></span> <small>DisXablau</small> 
                 <% end %>
             </div>
         </div>

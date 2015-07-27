@@ -1,8 +1,10 @@
 <div class="jumbotron center">
     <div class="jumbotext">
-    <h1>Welcome to myRecipes App</h1>
-     <p>A place to share your favourite recipes</p><br/>
-    <%= link_to "Sign up now", register_path, class: "btn btn-lg btn-primary" %>
+    <h1>Bem Vindos ao Larica's</h1>
+     <p>O lugar ideal para compartilhar suas aventuras culinárias na busca de saciar a larica <br/>
+     Aqui compatilhamos as receitas das laricas, sempre visando o custo mínimo e o alto grau de Saciedade!</p>
+     <p>Lembrando que todo lariquento é um Chef... Seja um Chef e...</p>
+    <%= link_to "Compartilhe Suas Receitas", register_path, class: "btn btn-lg btn-primary" %>
     <br/>&nbsp;
     </div>
 </div>
@@ -10,21 +12,21 @@
 <div class="row">
     <div class="col-lg-6">
         <h3 class="midrow">
-            View Recipes as Guest User
+            Visualize as Receitas como Convidado
         </h3>
-        <h2 class="left">Browse and view all recipes as a guest and Sign up later.  You can also filter by styles or ingredients.</h2>
-        <p> <%= link_to "Browse Recipe Listings", recipes_path, class: "btn btn-warning btn-small" %> </p>
+        <h2 class="left">Navegar e visualizar todas as receitas como um convidado e Registe-se mais tarde. Você também pode filtrar por estilos ou ingredientes.</h2>
+        <p> <%= link_to "Navegue pelas Receitas", recipes_path, class: "btn btn-warning btn-small" %> </p>
     </div>
     
     <div class="col-lg-6">
         <h3 class="midrow">
-            Log Into myRecipes as a Chef
+            Entre no Laricas como um Chef
         </h3>
-        <h2 class="left">Log in to add new recipes, edit your own recipes, vote on recipies and more!</h2>
+        <h2 class="left">Entrar para adicionar novas receitas, editar as suas próprias receitas, votar em receitas e muito mais!</h2>
         <% if logged_in? %>
             <p class="left" style="background: #f8f4e3;padding:10px;">You are already logged in as: <%= current_user.chefname %> </p>
         <% else %>
-            <p> <%= link_to "Log Into myRecipes", login_path, class: "btn btn-warning btn-small" %> </p>
+            <p> <%= link_to "Faça Log in no Laricas", login_path, class: "btn btn-warning btn-small" %> </p>
         <% end %>
     </div>
 
